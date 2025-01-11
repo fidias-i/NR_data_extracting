@@ -9,8 +9,13 @@ import json
 
 # URL, username, and password
 auth_url = "https://opendata.nationalrail.co.uk/authenticate"
-user = "fidias.ieridis@steergroup.com"
-password = "Steer2025!"
+json_file_path = 'credentials.json'
+with open(json_file_path, 'r') as file:
+    data = json.load(file)  # Parse the JSON file into a dictionary
+
+login = 
+user = data["user"]
+password = data["password"]
 
 # Correctly define the curl command and arguments
 command = [
