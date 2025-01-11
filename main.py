@@ -3,8 +3,6 @@ import subprocess
 import json
 
 # auth_url = "https://opendata.nationalrail.co.uk/authenticate"
-# user = "fidias.ieridis@steergroup.com"
-# password = "Steer2025!"
 # auth_out = os.system(f'curl {auth_url} --data-urlencode username={user}  --data-urlencode  password={password}')
 
 # URL, username, and password
@@ -13,7 +11,6 @@ json_file_path = 'credentials.json'
 with open(json_file_path, 'r') as file:
     data = json.load(file)  # Parse the JSON file into a dictionary
 
-login = 
 user = data["user"]
 password = data["password"]
 
