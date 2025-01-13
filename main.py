@@ -14,13 +14,13 @@ with open(json_file_path, 'r') as file:
 user = data["user"]
 password = data["password"]
 
-# Correctly define the curl command and arguments
+# Define the curl command and arguments
 command = [
     "curl", 
-    "-X", "POST",               # Specify POST method
-    "-H", "Content-Type: application/json",  # Specify headers
-    "-d", f'{{"username":"{user}", "password":"{password}"}}',  # Data payload
-    auth_url                     # Target URL
+    "-X", "POST",
+    "-H", "Content-Type: application/json",
+    "-d", f'{{"username":"{user}", "password":"{password}"}}',
+    auth_url
 ]
 
 # Run the curl command and capture the output
@@ -28,11 +28,10 @@ result = subprocess.run(command, capture_output=True, text=True)
 
 # Check if the command was successful
 if result.returncode == 0:
-    # Parse the response (if it's JSON)
     response = result.stdout.strip()
     try:
         auth_data = json.loads(response)
-        print(auth_data)  # Print the parsed dictionary
+        print(auth_data)  
     except json.JSONDecodeError as e:
         print("Failed to parse JSON:", e)
 else:
